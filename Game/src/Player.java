@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 /*
  * 
  * Player Class
@@ -6,36 +8,50 @@
  * 
  */
 
-public class Player {
+public class Player extends Move{
 	private int xPos;
 	private int yPos;
-	private int size;
-	private int score;
+	private int speed
+	private int health;
+	private Image image;
 	
-	public Player(int xPos, int yPos, int size, int score) {
+	public Player(int xPos, int yPos, int speed, int health, Image image) {
 		this.xPos = xPos;
 		this.yPos = yPos;
-		this.size = size;
-		this.score = score;
+		this.speed = speed;
+		this.health = health;
+		this.image = image;
 	}
 	
-	public void moveUp(int amount) {
-		yPos -= amount;
-		
-		if(yPos < 0) {
-			yPos = 0;
-		}
+	public int getX() {
+		return xPos;
 	}
 	
-	public void moveDown(int amount) {
-		
+	public int getY() {
+		return yPos;
 	}
 	
-	public void moveRight(int amount) {
-		
+	public Image getImg() {
+		return image;
 	}
-	
-	public void moveLeft(int amount) {
-		
+
+	@Override
+	public void moveUp() {
+		xPos -= 5;
+	}
+
+	@Override
+	public void moveDown() {
+		xPos += 5;
+	}
+
+	@Override
+	public void moveLeft() {
+		yPos -= 5;
+	}
+
+	@Override
+	public void moveRight() {
+		yPos += 5;
 	}
 }

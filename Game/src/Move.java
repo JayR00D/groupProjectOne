@@ -1,8 +1,8 @@
 
-public class Move {
-	private int amount;
+public abstract class Move {
 	
-	public Move(int amount) {
-		this.amount = amount;
-	}
+	public abstract void moveUp();
+	public abstract void moveDown();
+	public abstract void moveLeft();
+	public abstract void moveRight();
 }

@@ -6,7 +6,7 @@
  * 
  */
 
-public class Enemy {
+public class Enemy extends Move{
 	private int xPos;
 	private int yPos;
 	private int size;
@@ -15,5 +15,29 @@ public class Enemy {
 		this.xPos = xPos;
 		this.yPos = yPos;
 		this.size = size;
+	}
+
+	@Override
+	public void moveUp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveDown() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveLeft() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveRight() {
+		// TODO Auto-generated method stub
+		
 	}
 }
