@@ -1,0 +1,3 @@
+/Game/src/player1.jpg
+50
+100
