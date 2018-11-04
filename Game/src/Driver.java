@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
- * 
+ * *
  * Driver Class
  * Basic Run File for the game
  * Created 10/20/18
@@ -94,6 +94,11 @@ public class Driver extends Application {
 
 		imageView = new ImageView(new Image(imgURL));
 		enemyImageView = new ImageView(new Image(enemyimgURL));
+		collectView1 = new ImageView(collectimg);
+		collectView2 = new ImageView(collectimg);
+		collectView3 = new ImageView(collectimg);
+		collectView4 = new ImageView(collectimg);
+		collectView5 = new ImageView(collectimg);
 		
 		
 		
