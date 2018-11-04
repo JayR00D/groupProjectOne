@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 public class Player extends Move{
 	private int xPos;
 	private int yPos;
-	private int speed
+	private int speed;
 	private int health;
 	private Image image;
 	

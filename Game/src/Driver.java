@@ -29,7 +29,7 @@ public class Driver extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		myStage = stage;
-		/*
+		
 		File playerOne = new File("src/player1.txt");
 		File playerTwo = new File("src/player2.txt");
 		
@@ -56,9 +56,9 @@ public class Driver extends Application {
 		System.out.println(speed);
 		System.out.println(health);
 		
-		scan.close();*/
-		
-		ImageView imageView = new ImageView(new Image("file:src/player1/jpg")); 
+		scan.close();
+
+		ImageView imageView = new ImageView(new Image("file:src/player1.jpg"));
 		
 		imageView.setX(player.getX());
 		imageView.setY(player.getY());
