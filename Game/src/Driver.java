@@ -133,6 +133,7 @@ public class Driver extends Application {
 			}
 		}
 	
+	
 
 		imageView.setX(player.getX());
 		imageView.setY(player.getY());
