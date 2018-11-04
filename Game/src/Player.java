@@ -37,21 +37,21 @@ public class Player extends Move{
 
 	@Override
 	public void moveUp() {
-		xPos -= 5;
-	}
-
-	@Override
-	public void moveDown() {
-		xPos += 5;
-	}
-
-	@Override
-	public void moveLeft() {
 		yPos -= 5;
 	}
 
 	@Override
-	public void moveRight() {
+	public void moveDown() {
 		yPos += 5;
+	}
+
+	@Override
+	public void moveLeft() {
+		xPos -= 5;
+	}
+
+	@Override
+	public void moveRight() {
+		xPos += 5;
 	}
 }

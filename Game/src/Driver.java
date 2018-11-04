@@ -3,6 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.Scanner;
 
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -21,6 +23,7 @@ import javafx.stage.Stage;
 public class Driver extends Application {
 	static Player player;
 	static Stage myStage;
+	private ImageView imageView;
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		launch(args);
@@ -43,11 +46,11 @@ public class Driver extends Application {
 			scan = new Scanner(playerTwo);
 		}
 		
-		String temp = scan.nextLine();
-		temp = "file:" + temp;
-		System.out.println(temp);
+		String imgURL = scan.nextLine();
+		imgURL = "file:" + imgURL;
+		System.out.println(imgURL);
 		
-		Image img = new Image(temp);
+		Image img = new Image(imgURL);
 		int speed = scan.nextInt();
 		int health = scan.nextInt();
 		
@@ -58,12 +61,12 @@ public class Driver extends Application {
 		
 		scan.close();
 
-		ImageView imageView = new ImageView(new Image("file:src/player1.jpg"));
+		imageView = new ImageView(new Image(imgURL));
 		
 		imageView.setX(player.getX());
 		imageView.setY(player.getY());
-		imageView.setFitWidth(600);
-		imageView.setFitHeight(330);
+		imageView.setFitWidth(39);
+		imageView.setFitHeight(65);
 		
 	    Group root = new Group(imageView);  
 	      
@@ -73,7 +76,36 @@ public class Driver extends Application {
 	    myStage.setTitle("Loading an image");  
 	    myStage.setScene(scene);
 	    myStage.show(); 
-		
+	    
+	    scene.setOnKeyPressed(this::listenUp);
 	}
 
+
+	public void listenUp(KeyEvent event)
+	{
+		KeyCode myCode = event.getCode();
+		
+		if(myCode == KeyCode.A)
+		{
+			player.moveLeft();
+		}
+		else if(myCode == KeyCode.D)
+		{
+			player.moveRight();
+		}
+		else if(myCode == KeyCode.S)
+		{
+			player.moveDown();
+		}
+		else if(myCode == KeyCode.W)
+		{
+			player.moveUp();
+		}
+	
+
+		imageView.setX(player.getX());
+		imageView.setY(player.getY());
+		
+		
+	}
 }
