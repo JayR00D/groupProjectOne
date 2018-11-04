@@ -1,6 +1,6 @@
 import javafx.scene.image.Image;
 
-/*
+/**
  * 
  * Player Class
  * Stores and accsesses the information about the player

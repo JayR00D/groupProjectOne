@@ -1,6 +1,6 @@
 import javafx.scene.image.Image;
 
-/*
+/**
  * 
  * Enemy Class
  * Stores and runs information about the enemies
