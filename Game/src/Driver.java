@@ -137,37 +137,7 @@ public class Driver extends Application {
 		imageView.setX(player.getX());
 		imageView.setY(player.getY());
 		
-		if (player.getX() > enemy.getX() && player.getY() > enemy.getY()) {
-	    	enemy.moveDown();
-	    	enemy.moveRight();
-	    }
-	    else if (player.getX() > enemy.getX() && player.getY() < player.getY()) {
-	    	enemy.moveDown();
-	    	enemy.moveLeft();
-	    }
-	    else if (player.getX() < enemy.getX() && player.getY() > player.getY()) {
-	    	enemy.moveUp();
-	    	enemy.moveRight();
-	    }
-	    else if (player.getX() < enemy.getX() && player.getY() < player.getY()) {
-	    	enemy.moveUp();
-	    	enemy.moveLeft();
-	    }
-	    else if (player.getX() == enemy.getX() && player.getY() > player.getY()) {
-	    	enemy.moveRight();
-	    }
-	    else if (player.getX() == enemy.getX() && player.getY() < player.getY()) {
-	    	enemy.moveLeft();
-	    }
-	    else if (player.getX() > enemy.getX() && player.getY() == player.getY()) {
-	    	enemy.moveDown();
-	    }
-	    else if (player.getX() < enemy.getX() && player.getY() == player.getY()) {
-	    	enemy.moveUp();
-	    }
-	    else if (player.getX() == enemy.getX() && player.getY() == player.getY()) {
-	   
-	    }
+		enemy.calcDirection(player.getX(), player.getY());
 	    
 	    enemyImageView.setX(enemy.getX());
 	    enemyImageView.setY(enemy.getY());

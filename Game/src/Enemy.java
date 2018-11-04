@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import javafx.scene.image.Image;
 
 /**
@@ -54,6 +56,33 @@ public class Enemy extends Move{
 	
 	public int getY() {
 		return yPos;
+	}
+	
+	public void calcDirection(int playerX, int playerY) {
+		double[] dist = new double[4];
+		
+		dist[0] = calcDistance(playerX, playerY, 0, -1);
+		dist[1] = calcDistance(playerX, playerY, 0, 1);
+		dist[2] = calcDistance(playerX, playerY, 1, 0);
+		dist[3] = calcDistance(playerX, playerY, -1, 0);
+		
+		double[] dist2 = dist;
+		Arrays.sort(dist2);
+		
+		if(dist2[0] == dist[0]) {
+			moveUp();
+		}else if(dist2[0] == dist[1]) {
+			moveDown();
+		}else if(dist2[0] == dist[2]) {
+			moveRight();
+		}else {
+			moveLeft();
+		}
+		
+	}
+	
+	private double calcDistance(int playerX, int playerY, int changeX, int changeY) {
+		return Math.abs((Math.sqrt(Math.pow(playerY - yPos + changeY, 2) + Math.pow(playerX - xPos + changeX, 2))));
 	}
 	
 }
