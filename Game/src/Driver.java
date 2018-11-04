@@ -81,8 +81,8 @@ public class Driver extends Application {
 		
 		enemyImageView.setX(enemy.getX());
 		enemyImageView.setY(enemy.getY());
-		imageView.setFitWidth(39);
-		imageView.setFitHeight(65);
+		enemyImageView.setFitWidth(39);
+		enemyImageView.setFitHeight(65);
 		
 	    Group root = new Group(imageView, enemyImageView);  
 	      
