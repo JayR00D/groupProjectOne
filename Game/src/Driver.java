@@ -22,8 +22,10 @@ import javafx.stage.Stage;
 
 public class Driver extends Application {
 	static Player player;
+	static Enemy enemy;
 	static Stage myStage;
 	private ImageView imageView;
+	private ImageView enemyImageView;
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		launch(args);
@@ -32,7 +34,6 @@ public class Driver extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		myStage = stage;
-		
 		File playerOne = new File("src/player1.txt");
 		File playerTwo = new File("src/player2.txt");
 		
@@ -55,6 +56,7 @@ public class Driver extends Application {
 		int health = scan.nextInt();
 		
 		player = new Player(10, 10, speed, health, img);
+		enemy = new Enemy(500, 400, 39, 65, 4, img);
 		
 		System.out.println(speed);
 		System.out.println(health);
@@ -62,13 +64,19 @@ public class Driver extends Application {
 		scan.close();
 
 		imageView = new ImageView(new Image(imgURL));
+		enemyImageView = new ImageView(new Image(imgURL/*enemyURL*/));
 		
 		imageView.setX(player.getX());
 		imageView.setY(player.getY());
 		imageView.setFitWidth(39);
 		imageView.setFitHeight(65);
 		
-	    Group root = new Group(imageView);  
+		enemyImageView.setX(enemy.getX());
+		enemyImageView.setY(enemy.getY());
+		imageView.setFitWidth(39);
+		imageView.setFitHeight(65);
+		
+	    Group root = new Group(imageView, enemyImageView);  
 	      
 	    Scene scene = new Scene(root, 600, 500);  
 	      
@@ -78,6 +86,8 @@ public class Driver extends Application {
 	    myStage.show(); 
 	    
 	    scene.setOnKeyPressed(this::listenUp);
+	    
+	    
 	}
 
 
@@ -105,6 +115,41 @@ public class Driver extends Application {
 
 		imageView.setX(player.getX());
 		imageView.setY(player.getY());
+		
+		if (player.getX() > enemy.getX() && player.getY() > enemy.getY()) {
+	    	enemy.moveDown();
+	    	enemy.moveRight();
+	    }
+	    else if (player.getX() > enemy.getX() && player.getY() < player.getY()) {
+	    	enemy.moveDown();
+	    	enemy.moveLeft();
+	    }
+	    else if (player.getX() < enemy.getX() && player.getY() > player.getY()) {
+	    	enemy.moveUp();
+	    	enemy.moveRight();
+	    }
+	    else if (player.getX() < enemy.getX() && player.getY() < player.getY()) {
+	    	enemy.moveUp();
+	    	enemy.moveLeft();
+	    }
+	    else if (player.getX() == enemy.getX() && player.getY() > player.getY()) {
+	    	enemy.moveRight();
+	    }
+	    else if (player.getX() == enemy.getX() && player.getY() < player.getY()) {
+	    	enemy.moveLeft();
+	    }
+	    else if (player.getX() > enemy.getX() && player.getY() == player.getY()) {
+	    	enemy.moveDown();
+	    }
+	    else if (player.getX() < enemy.getX() && player.getY() == player.getY()) {
+	    	enemy.moveUp();
+	    }
+	    else if (player.getX() == enemy.getX() && player.getY() == player.getY()) {
+	   
+	    }
+	    
+	    enemyImageView.setX(enemy.getX());
+	    enemyImageView.setY(enemy.getY());
 		
 		
 	}
