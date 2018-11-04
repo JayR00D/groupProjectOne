@@ -70,6 +70,7 @@ public class Driver extends Application {
 		System.out.println(health);
 		
 		scan.close();
+		enemyScan.close();
 
 		imageView = new ImageView(new Image(imgURL));
 		enemyImageView = new ImageView(new Image(enemyimgURL));
