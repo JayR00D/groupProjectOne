@@ -30,25 +30,21 @@ public class Enemy extends Move{
 	@Override
 	public void moveUp() {
 		yPos -= speed;
-		if(yPos < 0) { yPos = 0; }
 	}
 
 	@Override
 	public void moveDown() {
 		yPos += speed;
-		if(yPos > 500) { yPos = 500; }
 	}
 
 	@Override
 	public void moveLeft() {
 		xPos -= speed;
-		if(xPos < 0) { xPos = 0; }
 	}
 
 	@Override
 	public void moveRight() {
 		xPos += speed;
-		if(yPos > 600) { yPos = 600; }
 	}
 	public int getX() {
 		return xPos;
@@ -66,17 +62,26 @@ public class Enemy extends Move{
 		dist[2] = calcDistance(playerX, playerY, 1, 0);
 		dist[3] = calcDistance(playerX, playerY, -1, 0);
 		
-		double[] dist2 = dist;
+		double[] dist2 = new double[4];
+		for(int i = 0; i < dist.length; i++) {
+			dist2[i] = dist[i];
+		}
+		
 		Arrays.sort(dist2);
+		//System.out.println(dist2[0]);
 		
 		if(dist2[0] == dist[0]) {
-			moveUp();
-		}else if(dist2[0] == dist[1]) {
 			moveDown();
+			System.out.println("movedUP");
+		}else if(dist2[0] == dist[1]) {
+			moveUp();
+			System.out.println("movedDown");
 		}else if(dist2[0] == dist[2]) {
-			moveRight();
-		}else {
 			moveLeft();
+			System.out.println("movedRight");
+		}else {
+			moveRight();
+			System.out.println("movedLeft");
 		}
 		
 	}
