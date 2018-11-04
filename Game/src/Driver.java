@@ -64,7 +64,7 @@ public class Driver extends Application {
 		enemyimgURL = "file:" + enemyimgURL;
 		Image enemyimg = new Image(enemyimgURL);
 		
-		enemy = new Enemy(500, 400, 39, 65, 4, enemyimg);
+		enemy = new Enemy(500, 400, 39, 65, 1, enemyimg);
 		
 		System.out.println(speed);
 		System.out.println(health);
