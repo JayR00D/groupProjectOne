@@ -38,24 +38,20 @@ public class Player extends Move{
 	@Override
 	public void moveUp() {
 		yPos -= speed;
-		if(yPos < 0) { yPos = 0; }
 	}
 
 	@Override
 	public void moveDown() {
 		yPos += speed;
-		if(yPos > 200 - 65) { yPos = 200 - 65; } //border - player height
 	}
 
 	@Override
 	public void moveLeft() {
 		xPos -= speed;
-		if(xPos < 0) { xPos = 0; }
 	}
 
 	@Override
 	public void moveRight() {
 		xPos += speed;
-		if(yPos > 600 - 39) { yPos = 600-39; } //border - player width
 	}
 }

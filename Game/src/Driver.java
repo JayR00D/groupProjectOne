@@ -98,18 +98,31 @@ public class Driver extends Application {
 		if(myCode == KeyCode.A)
 		{
 			player.moveLeft();
+			if(player.getX() < 10) {
+				player.moveRight();
+			}
 		}
 		else if(myCode == KeyCode.D)
 		{
 			player.moveRight();
+			if(player.getX() > 560) {
+				player.moveLeft();
+			}
 		}
 		else if(myCode == KeyCode.S)
 		{
 			player.moveDown();
+			if(player.getY() > 440) {
+				player.moveUp();
+			}
+			
 		}
 		else if(myCode == KeyCode.W)
 		{
 			player.moveUp();
+			if(player.getY() < 10) {
+				player.moveDown();
+			}
 		}
 	
 
