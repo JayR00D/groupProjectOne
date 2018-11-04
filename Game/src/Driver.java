@@ -21,11 +21,21 @@ import javafx.stage.Stage;
  */
 
 public class Driver extends Application {
-	static Player player;
-	static Enemy enemy;
-	static Stage myStage;
+	private Player player;
+	private Enemy enemy;
+	private Collectable collect1;
+	private Collectable collect2;
+	private Collectable collect3;
+	private Collectable collect4;
+	private Collectable collect5;
+	private Stage myStage;
 	private ImageView imageView;
 	private ImageView enemyImageView;
+	private ImageView collectable1;
+	private ImageView collectable2;
+	private ImageView collectable3;
+	private ImageView collectable4;
+	private ImageView collectable5;
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		launch(args);
@@ -64,7 +74,17 @@ public class Driver extends Application {
 		enemyimgURL = "file:" + enemyimgURL;
 		Image enemyimg = new Image(enemyimgURL);
 		
+
+		Image collectimg = new Image("file:/Game/src/Collectable.jpg");
+		
 		enemy = new Enemy(500, 400, 39, 65, 1, enemyimg);
+		
+
+		collect1 = new Collectable(rand.nextInt(500)+1, rand.nextInt(600)+1, 10, 10, 5, collectimg);
+		collect2 = new Collectable(rand.nextInt(500)+1, rand.nextInt(600)+1, 10, 10, 5, collectimg);
+		collect3 = new Collectable(rand.nextInt(500)+1, rand.nextInt(600)+1, 10, 10, 5, collectimg);
+		collect4 = new Collectable(rand.nextInt(500)+1, rand.nextInt(600)+1, 10, 10, 5, collectimg);
+		collect5 = new Collectable(rand.nextInt(500)+1, rand.nextInt(600)+1, 10, 10, 5, collectimg);
 		
 		System.out.println(speed);
 		System.out.println(health);
@@ -74,6 +94,8 @@ public class Driver extends Application {
 
 		imageView = new ImageView(new Image(imgURL));
 		enemyImageView = new ImageView(new Image(enemyimgURL));
+		
+		
 		
 		imageView.setX(player.getX());
 		imageView.setY(player.getY());
@@ -85,7 +107,9 @@ public class Driver extends Application {
 		enemyImageView.setFitWidth(39);
 		enemyImageView.setFitHeight(65);
 		
-	    Group root = new Group(imageView, enemyImageView);  
+		
+		
+	    Group root = new Group(imageView, enemyImageView, collect1, collect2, collect3, collect4, collect5);  
 	      
 	    Scene scene = new Scene(root, 600, 500);  
 	      

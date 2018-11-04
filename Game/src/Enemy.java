@@ -14,7 +14,7 @@ public class Enemy extends Move{
 	private int xPos;
 	private int yPos;
 	private int speed;
-	//private int xSize;
+	private int xSize;
 	private int ySize;
 	private Image image;
 	

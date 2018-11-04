@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+
 /*
  * 
  * Collectable Class
@@ -9,13 +11,17 @@
 public class Collectable {
 	private int xPos;
 	private int yPos;
-	private int size;
+	private int xSize;
+	private int ySize;
 	private int score;
+	private Image img;
 
-	public Collectable(int xPos, int yPos, int size, int score) {
+	public Collectable(int xPos, int yPos, int xSize, int ySize, int score, Image img) {
 		this.xPos = xPos;
 		this.yPos = yPos;
-		this.size = size;
+		this.xSize = xSize;
+		this.ySize = ySize;
 		this.score = score;
+		this.img = img;
 	}
 }
