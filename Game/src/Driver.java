@@ -40,11 +40,14 @@ public class Driver extends Application {
 		Random rand = new Random();
 		
 		Scanner scan;
+		Scanner enemyScan;
 		
 		if(rand.nextInt() % 2 == 0) {
 			scan = new Scanner(playerOne);
+			enemyScan = new Scanner(playerTwo);
 		}else {
 			scan = new Scanner(playerTwo);
+			enemyScan = new Scanner(playerOne);
 		}
 		
 		String imgURL = scan.nextLine();
@@ -56,7 +59,12 @@ public class Driver extends Application {
 		int health = scan.nextInt();
 		
 		player = new Player(10, 10, speed, health, img);
-		enemy = new Enemy(500, 400, 39, 65, 4, img);
+		
+		String enemyimgURL = enemyScan.nextLine();
+		enemyimgURL = "file:" + enemyimgURL;
+		Image enemyimg = new Image(enemyimgURL);
+		
+		enemy = new Enemy(500, 400, 39, 65, 4, enemyimg);
 		
 		System.out.println(speed);
 		System.out.println(health);
@@ -64,7 +72,7 @@ public class Driver extends Application {
 		scan.close();
 
 		imageView = new ImageView(new Image(imgURL));
-		enemyImageView = new ImageView(new Image(imgURL/*enemyURL*/));
+		enemyImageView = new ImageView(new Image(enemyimgURL));
 		
 		imageView.setX(player.getX());
 		imageView.setY(player.getY());
