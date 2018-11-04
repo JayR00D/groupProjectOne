@@ -31,11 +31,11 @@ public class Driver extends Application {
 	private Stage myStage;
 	private ImageView imageView;
 	private ImageView enemyImageView;
-	private ImageView collectable1;
-	private ImageView collectable2;
-	private ImageView collectable3;
-	private ImageView collectable4;
-	private ImageView collectable5;
+	private ImageView collectView1;
+	private ImageView collectView2;
+	private ImageView collectView3;
+	private ImageView collectView4;
+	private ImageView collectView5;
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		launch(args);
