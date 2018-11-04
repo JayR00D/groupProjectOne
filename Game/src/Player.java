@@ -54,4 +54,19 @@ public class Player extends Move{
 	public void moveRight() {
 		xPos += speed;
 	}
+
+	@Override
+	public boolean isTouching(int objOneXPos, int objOneYPos, int objOneXSize, int objOneYSize, int objTwoXPos,
+			int objTwoYPos, int objTwoXSize, int objTwoYSize) {
+		
+		if(objOneXPos >= objTwoXPos && objOneXPos <= objTwoXPos + objTwoXSize && objOneYPos >= objTwoYPos && objOneYPos <= objTwoYPos + objTwoYSize) {
+			if(objOneXPos + objOneXSize >= objTwoXPos && objOneXPos + objOneXSize <= objTwoXPos + objTwoXSize && objOneYPos + objOneYSize >= objTwoYPos && objOneYPos + objOneYSize <= objTwoYPos + objTwoYSize) {
+				return true;
+			}else {
+				return false;
+			}
+		}else {
+			return false;
+		}
+	}
 }
