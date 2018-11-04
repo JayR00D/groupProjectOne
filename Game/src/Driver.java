@@ -64,12 +64,13 @@ public class Driver extends Application {
 		enemyimgURL = "file:" + enemyimgURL;
 		Image enemyimg = new Image(enemyimgURL);
 		
-		enemy = new Enemy(500, 400, 39, 65, 4, enemyimg);
+		enemy = new Enemy(500, 400, 39, 65, 1, enemyimg);
 		
 		System.out.println(speed);
 		System.out.println(health);
 		
 		scan.close();
+		enemyScan.close();
 
 		imageView = new ImageView(new Image(imgURL));
 		enemyImageView = new ImageView(new Image(enemyimgURL));
@@ -132,6 +133,7 @@ public class Driver extends Application {
 				player.moveDown();
 			}
 		}
+	
 	
 
 		imageView.setX(player.getX());
