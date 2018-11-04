@@ -14,6 +14,7 @@ public class Player extends Move{
 	private int speed;
 	private int health;
 	private Image image;
+	private int score;
 	
 	public Player(int xPos, int yPos, int speed, int health, Image image) {
 		this.xPos = xPos;
@@ -21,6 +22,7 @@ public class Player extends Move{
 		this.speed = speed;
 		this.health = health;
 		this.image = image;
+		this.score = 0;
 	}
 	
 	public int getX() {
@@ -33,6 +35,10 @@ public class Player extends Move{
 	
 	public Image getImg() {
 		return image;
+	}
+	
+	public void increaseScore(int amount) {
+		score += amount;
 	}
 
 	@Override
